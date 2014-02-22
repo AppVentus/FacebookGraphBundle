@@ -1,0 +1,22 @@
+{
+    "name": "appventus/facebook-graph-bundle",
+    "type": "symfony-bundle",
+    "description": "Facebook Graph manipulation Symfony Bundle (get PageId, Picture, RssFeed ...)",
+    "keywords": ["Graph", "Facebook"],
+    "homepage": "http://appventus.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Leny Bernard",
+            "email": "leny@appventus.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.1"
+    },
+    "autoload": {
+        "psr-0": { "AppVentus\\FacebookGraphBundle": "" }
+    },
+    "target-dir": "AppVentus/FacebookGraphBundle"
+}
