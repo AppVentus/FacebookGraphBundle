@@ -53,3 +53,7 @@ Sometimes, you need the page picture :
     $facebookPictureUrl = $facebookGraphParser->getFacebookPicture(35, 35);
     
 Feel free to fork and add your own needs, it's more fun together ;)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AppVentus/facebookgraphbundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
