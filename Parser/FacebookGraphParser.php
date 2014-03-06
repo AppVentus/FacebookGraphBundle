@@ -25,10 +25,15 @@ class FacebookGraphParser
      * @return FacebookGraphParser Return this
      */
     function parse() {
+        $headers = @get_headers($this->getGraphUrl());
+        if (strpos($headers[0],'200') === false) {
+            return false;
+        }
         $json = file_get_contents($this->getGraphUrl());
         $this->params = json_decode($json, true);
 
         return $this;
+
     }
 
     /**
@@ -41,7 +46,7 @@ class FacebookGraphParser
         if (array_key_exists($name, $this->params)) {
             return $this->params[$name];
         } else {
-            throw new Exception(sprintf("%s does not exists (only %)", $name, array_keys($this->params)));
+            throw new \Exception(sprintf("%s does not exists (only %)", $name, array_keys($this->params)));
         }
     }
 
