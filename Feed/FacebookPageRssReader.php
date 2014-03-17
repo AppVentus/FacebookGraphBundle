@@ -34,7 +34,6 @@ class FacebookPageRssReader
         // This creates an array called "entry" that puts each <item> in FB's
         // XML format into the array
         $entry = $xml->channel->item;
-
         // We instanciate a facebook feed object to get all feed items
         $facebookFeed = new FacebookFeed(
             $xml->channel->title,
@@ -45,14 +44,16 @@ class FacebookPageRssReader
         // Now we'll loop through are array. I just have it going up to 3 items
         // for this example.
         for ($i = 0; $i < 3; $i++) {
-            $item = new FacebookFeedItem(
-                $entry[$i]->title,
-                $entry[$i]->link,
-                $entry[$i]->description,
-                strtotime($entry[$i]->pubDate),
-                $entry[$i]->author);
+            if (isset($entry[$i])) {
+                $item = new FacebookFeedItem(
+                    $entry[$i]->title,
+                    $entry[$i]->link,
+                    $entry[$i]->description,
+                    strtotime($entry[$i]->pubDate),
+                    $entry[$i]->author);
 
-            $facebookFeed->addItem($item);
+                $facebookFeed->addItem($item);
+            }
         }
 
         // Finally, we return (or in this case echo) our formatted string with our
